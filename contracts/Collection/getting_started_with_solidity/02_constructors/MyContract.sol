@@ -14,6 +14,6 @@ contract MyContract {
         x = _x;
         y = _y;
         owner = msg.sender;
-        createdAt = block.timestamp;
+        createdAt = blockhash;
     }
 }

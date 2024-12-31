@@ -16,7 +16,7 @@ contract MyContract {
     Status public status;
 
     function ship() public {
-        require(status == Status.Pending);
+        require(status == Status.Pending, "error: cannot ship item");
         status = Status.Shipped;
     }
 }
