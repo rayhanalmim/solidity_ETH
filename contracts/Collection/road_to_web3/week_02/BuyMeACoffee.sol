@@ -51,7 +51,7 @@ contract BuyMeACoffee {
      * @dev send the entire balance stored in this contract to the owner
      */
     function withdrawTips() public {
-        require(owner.send(address(this).balance));
+        require(owner.transfer(address(this).balance), "Failed to send tips to owner");
     }
 
     function changeOwner(address newOwner) public ownerOnly {

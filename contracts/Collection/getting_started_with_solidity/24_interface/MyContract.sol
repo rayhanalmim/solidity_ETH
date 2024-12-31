@@ -47,7 +47,7 @@ contract MyContract is IERC20 {
     }
 
     function transfer(address receiver, uint256 numTokens) public override returns (bool) {
-        require(numTokens <= balances[msg.sender]);
+        require(numTokens <= balances[msg.sender], "Insufficient balance.");
         balances[msg.sender] = balances[msg.sender] - numTokens;
         balances[receiver] = balances[receiver] + numTokens;
         emit Transfer(msg.sender, receiver, numTokens);
@@ -69,8 +69,8 @@ contract MyContract is IERC20 {
         address buyer,
         uint256 numTokens
     ) public override returns (bool) {
-        require(numTokens <= balances[owner]);
-        require(numTokens <= allowed[owner][msg.sender]);
+        require(numTokens <= balances[owner], 'Insufficient balance.');
+        require(numTokens <= allowed[owner][msg.sender], 'Insufficient allowance.');
 
         balances[owner] = balances[owner] - numTokens;
         allowed[owner][msg.sender] = allowed[owner][msg.sender] + numTokens;
