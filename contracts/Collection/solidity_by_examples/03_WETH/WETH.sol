@@ -32,7 +32,7 @@ contract WETH is ERC20 {
     //      /  \
     //    yes   no
     //    /       \
-    // receive()  fallback()
+    // receive()  fallback`0()
 
     receive() external payable {
         deposit();
