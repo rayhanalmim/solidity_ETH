@@ -12,7 +12,7 @@ contract MyContract {
     }
 
     function kill() public {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "only owner can call this function");
         selfdestruct(owner);
     }
 }
