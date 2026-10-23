@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "node api.js && next dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "node api.js && next start"
+    "start": "next start"
   },
   "dependencies": {
     "dotenv": "^16.0.2",
